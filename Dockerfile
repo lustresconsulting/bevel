@@ -79,4 +79,4 @@ ENV PATH=~/.krew/bin:/home/jdk-14/bin:/root/bin:/root/.local/bin/:$PATH
 
 #path to mount the repo
 VOLUME /home/bevel/
-CMD ["/home/run.sh"]
+#CMD ["/home/run.sh"]

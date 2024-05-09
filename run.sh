@@ -15,7 +15,7 @@ export PATH=/root/bin:$PATH
 #Path to k8s config file
 KUBECONFIG=/home/bevel/build/config
 
-echo "Validatin network yaml"
+echo "Validating network yaml"
 ajv validate -s /home/bevel/platforms/network-schema.json -d /home/bevel/build/network.yaml 
 
 echo "Running the playbook..."

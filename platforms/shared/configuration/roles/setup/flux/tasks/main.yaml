@@ -19,6 +19,7 @@
 
 - name: Update the ssh host to known hosts
   shell: |
+    eval `ssh-agent`
     mkdir -p ~/.ssh/
     ssh-keygen -R {{ git_host }}
     ssh-keyscan {{ git_host }} >> ~/.ssh/known_hosts

@@ -41,3 +41,8 @@
 **/charts/*.tgz
 **/files/*.json
 requirements.lock
+google-cloud-sdk
+**/*vault*/
+google-cloud-cli-475.0.0-linux-x86_64.tar.gz
+history.txt
+logs.txt

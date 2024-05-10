@@ -17,28 +17,28 @@
   gather_facts: no
   no_log: "{{ no_ansible_log | default(false) }}"
   tasks:
-#    # Delete Vault and Kubernetes secrets.
-#    - include_role:
-#        name: "delete/vault_secrets"
-#      vars:
-#        component_name: "{{ item.name | lower }}-net"
-#        org_name: "{{ item.name | lower }}"
-#        component_type: "{{ item.type | lower }}"
-#        services: "{{ item.services }}"
-#        kubernetes: "{{ item.k8s }}"
-#      loop: "{{ network['organizations'] }}"
-#      when: network.env.type != 'operator'
+    # Delete Vault and Kubernetes secrets.
+    - include_role:
+        name: "delete/vault_secrets"
+      vars:
+        component_name: "{{ item.name | lower }}-net"
+        org_name: "{{ item.name | lower }}"
+        component_type: "{{ item.type | lower }}"
+        services: "{{ item.services }}"
+        kubernetes: "{{ item.k8s }}"
+      loop: "{{ network['organizations'] }}"
+      when: network.env.type != 'operator'
 
-#    # Delete genesis
-#    - include_role:
-#        name: "delete/genesis"
-#      vars:
-#        component_name: "{{ item.name | lower }}-net"
-#        sys_channel_name: "syschannel"
-#      loop: "{{ network['organizations'] }}"
-#      when:
-#      - item.type == "orderer"
-#      - network.env.type != 'operator'
+    # Delete genesis
+    - include_role:
+        name: "delete/genesis"
+      vars:
+        component_name: "{{ item.name | lower }}-net"
+        sys_channel_name: "syschannel"
+      loop: "{{ network['organizations'] }}"
+      when:
+      - item.type == "orderer"
+      - network.env.type != 'operator'
 
     - include_role: 
         name: "delete/operator"

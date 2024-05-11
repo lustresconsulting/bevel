@@ -33,6 +33,9 @@
   loop: "{{ item.services.orderers }}"
   loop_control:
     loop_var: orderer
+  ignore_errors: yes
+  changed_when:
+    - '"already exists" in result.stderr'
 
 # Wait for orderers to start
 - name: Wait for orderers to start

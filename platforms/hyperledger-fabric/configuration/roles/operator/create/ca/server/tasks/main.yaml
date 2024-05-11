@@ -22,3 +22,6 @@
     storage: "1Gi"
     ca_url: "{{ item.ca_data.url }}"
     kubeconfig_path: "{{ item.k8s.config_file }}"
+  ignore_errors: yes
+  changed_when:
+    - '"already exists" in result.stderr'

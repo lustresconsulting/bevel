@@ -49,6 +49,9 @@
   when: 
   - component_type == 'peer'
   - user_type == 'default'
+  ignore_errors: yes
+  changed_when:
+    - '"already registered" in result.stderr'
 
 # Create admin user for org
 - name: "Create admin user for org"
